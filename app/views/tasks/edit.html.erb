@@ -1,0 +1,32 @@
+<h3>予定を編集してください</h3>
+<%= render "shared/error", obj: @task %>
+
+<%= form_with model: @task do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :title ,"タイトル" %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :start ,"開始日" %></th>
+      <td><%= f.date_field :start %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :end ,"終了日" %></th>
+      <td><%= f.date_field :end %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :allday ,"終日の場合はチェックを入れてください" %></th>
+      <td><%= f.check_box :allday %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :memo ,"スケジュールメモ" %></th>
+      <td><%= f.text_area :memo %></td>
+    </tr>
+  </table>
+
+  <div>
+    <%= f.submit "保存" %>
+    <%= link_to "キャンセル", :tasks %>
+  </div>
+<% end %>
